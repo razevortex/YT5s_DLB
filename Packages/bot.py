@@ -15,6 +15,7 @@ class YT5(object):
     def __init__(self):
 
         self.driver = webdriver.Edge('A:\Raze VorteX\Workspace\YT5s_DLB\Packages\webdriver\msedgedriver.exe')
+        self.driver.minimize_window()
         self.download_path = r'C:/Users/Raze Vortex/Downloads'
         self.yt5_url = f'https://yt5s.com/en101/youtube-to-*/'
         self.quality = ''
@@ -93,21 +94,25 @@ def remove_link(link):
 
 
 def walk_link_list():
-    yt_loader = YT5()
-    yt_loader.check_download_folder()
     while True:
-        if not next_line():
-            time.sleep(10)
-        else:
-            yt_loader.load_link(next_line())
-            time.sleep(2)
-            yt_loader.pick_res()
-            time.sleep(0.2)
-            yt_loader.click_continue()
-            time.sleep(1.5)
-            yt_loader.download_element()
-            time.sleep(2)
+        try:
+            yt_loader = YT5()
             yt_loader.check_download_folder()
+            while True:
+                if not next_line():
+                    time.sleep(10)
+                else:
+                    yt_loader.load_link(next_line())
+                    time.sleep(2)
+                    yt_loader.pick_res()
+                    time.sleep(0.2)
+                    yt_loader.click_continue()
+                    time.sleep(1.5)
+                    yt_loader.download_element()
+                    time.sleep(2)
+                    yt_loader.check_download_folder()
+        except:
+            pass
 
 '''if __name__ == '__main__':
     walk_link_list()'''
