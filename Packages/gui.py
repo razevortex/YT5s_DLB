@@ -24,11 +24,11 @@ class MainMenu(object):
             no_titlebar=False)
 
 
-
 def add_to_list(file_type, quality, link):
     string = f'{file_type},{quality},{link}\n'
     with open('A:\Raze VorteX\Workspace\YT5s_DLB\Packages\Links\links.txt', 'a') as linklist:
         linklist.write(string)
+
 
 def gui_proc():
     gui = MainMenu()
@@ -42,19 +42,3 @@ def gui_proc():
             format = value['convert'].split('/')
             link = value['link']
             add_to_list(format[0], format[1], link)
-
-
-'''if __name__ == '__main__':
-    gui = MainMenu()
-    active = True
-    while active:
-        event, value = gui.MainWindow.read()
-        if event == 'Close' or event == sg.WIN_CLOSED:
-            gui.MainWindow.close()
-            sys.exit()
-        if event == 'Add':
-            format = value['convert'].split('/')
-            link = value['link']
-            add_to_list(format[0], format[1], link)
-
-'''

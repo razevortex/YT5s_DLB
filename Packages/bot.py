@@ -13,7 +13,6 @@ import sys
 
 class YT5(object):
     def __init__(self):
-
         self.driver = webdriver.Edge('A:\Raze VorteX\Workspace\YT5s_DLB\Packages\webdriver\msedgedriver.exe')
         self.driver.minimize_window()
         self.download_path = r'C:/Users/Raze Vortex/Downloads'
@@ -113,6 +112,3 @@ def walk_link_list():
                     yt_loader.check_download_folder()
         except:
             pass
-
-'''if __name__ == '__main__':
-    walk_link_list()'''
